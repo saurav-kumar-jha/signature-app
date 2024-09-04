@@ -1,12 +1,12 @@
 const canvas = document.getElementById("signature-pad");  
 const clearButton = document.getElementById("clr-btn");
-const saveButton = document.getElementById("save-btn");
+const saveButton = document.getElementById("save-btn"); 
 const ctx = canvas.getContext("2d");
 let drawing = false;
 let prevX = 0;
 let prevY = 0;
 let penclr = "#000"
-let bgclr = "#ffffff" 
+let bgclr = "#ffffff"
 var fsize = 2;
 canvas.addEventListener("mousedown", (e) => {
     drawing = true;
@@ -22,7 +22,7 @@ canvas.addEventListener("mouseup", () => {
 });
 canvas.addEventListener("mouseleave", () => {
     drawing = false;
-});
+}); 
 
 // pencolor function------------------------------------
 var pen = document.getElementById("pen-clr")
@@ -32,6 +32,7 @@ pen.addEventListener("change",()=>{
 })
 
 
+canvas.style.backgroundColor = "#fff";
 var bg = document.getElementById("bg-clr")
 bg.addEventListener("change",()=>{
     bgclr = bg.value;
@@ -50,6 +51,13 @@ fontsize.addEventListener("change",()=>{
     fsize = fontsize.value;
 })
 
+var canvasheight = 200
+
+var csize = document.getElementById("c-size")
+csize.addEventListener("change",()=>{
+    canvasheight = csize.value;
+    canvas.style.height = canvasheight;
+})
 
 
 function draw(x, y) {
