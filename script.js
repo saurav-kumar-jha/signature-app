@@ -51,15 +51,6 @@ fontsize.addEventListener("change",()=>{
     fsize = fontsize.value;
 })
 
-var canvasheight = 200
-
-var csize = document.getElementById("c-size")
-csize.addEventListener("change",()=>{
-    canvasheight = csize.value;
-    canvas.style.height = canvasheight;
-})
-
-
 function draw(x, y) {
     ctx.beginPath();
     ctx.strokeStyle = penclr;
