@@ -8,19 +8,19 @@ let prevY = 0;
 let penclr = "#000"
 let bgclr = "#ffffff"
 var fsize = 2;
-canvas.addEventListener("mousedown", (e) => {
+canvas.addEventListener("mousedown" || "touchstart", (e) => {
     drawing = true;
     prevX = e.clientX - canvas.getBoundingClientRect().left;
     prevY = e.clientY - canvas.getBoundingClientRect().top;
 });
-canvas.addEventListener("mousemove", (e) => {
+canvas.addEventListener("mousemove" || "touchmove", (e) => {
     if (!drawing) return;
     draw(e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top);
 });
-canvas.addEventListener("mouseup", () => {
+canvas.addEventListener("mouseup" || "touchcancel", () => {
     drawing = false;
 });
-canvas.addEventListener("mouseleave", () => {
+canvas.addEventListener("mouseleave" || "touchend", () => {
     drawing = false;
 }); 
 
@@ -67,10 +67,10 @@ clearButton.addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 saveButton.addEventListener("click", () => {
-    const dataURL = canvas.toDataURL("image/png");
+    const dataURL = canvas.toDataURL("image/jpeg");
     const a = document.createElement("a");
     a.href = dataURL;
-    a.download = "signature.png";
+    a.download = "signature.jpeg";
     a.click();
 });
 
